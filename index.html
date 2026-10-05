@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#080b20">
+  <meta name="description" content="《城市疾走：Neon Runner》— 原創霓虹城市無盡跑酷遊戲。">
+  <title>Neon Runner｜城市疾走</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game-shell">
+    <canvas id="game" aria-label="Neon Runner 遊戲畫面"></canvas>
+    <header class="hud" id="hud" aria-live="polite">
+      <div class="brand">NEON <span>RUNNER</span></div>
+      <div class="stats">
+        <div><small>SCORE</small><strong id="score">0</strong></div>
+        <div><small>COINS</small><strong id="coins">0</strong></div>
+        <div><small>TIME</small><strong id="time">0:00</strong></div>
+        <div><small>HEAT</small><strong id="heat">LEVEL 1</strong></div>
+      </div>
+      <div class="heat-wrap"><span>HEAT LEVEL</span><div class="heat-track"><i id="heat-meter"></i></div></div>
+      <div class="powerups" id="powerups" aria-live="polite"></div>
+      <button class="pause-button" id="pause-button" aria-label="暫停遊戲">Ⅱ</button>
+    </header>
+    <section class="overlay" id="menu-screen">
+      <div class="panel">
+        <p class="eyebrow">A NEON CITY ENDLESS RUN</p><h1>NEON<br><span>RUNNER</span></h1>
+        <p class="subtitle">城市疾走</p>
+        <p class="intro">穿越霓虹街區，躲開追擊，在熱度升高前跑得更遠。</p>
+        <button class="primary" id="start-button">開始疾走 <span>→</span></button>
+        <button class="text-button" id="how-button">操作說明</button>
+        <p class="best-line">最高紀錄 <b id="menu-best">0</b></p>
+      </div>
+    </section>
+    <section class="overlay hidden" id="how-screen">
+      <div class="panel compact"><p class="eyebrow">HOW TO PLAY</p><h2>準備出發</h2>
+        <div class="instructions"><p><b>← / →</b>　切換道路</p><p><b>↑ / Space</b>　跳過路障</p><p><b>↓</b>　滑過雷射門</p><p><b>P</b>　暫停遊戲</p><p><b>手機</b>　左右上下滑動，或使用畫面按鈕</p><p><b>自動駕駛車</b>　切換至其他道路閃避</p></div>
+        <p class="hint">撿取能量幣與道具，持續奔跑可提升 Heat。護盾可擋一次撞擊，磁力會吸引金幣，加速器可提高速度與分數。</p>
+        <button class="primary" id="how-back">知道了</button>
+      </div>
+    </section>
+    <section class="overlay hidden" id="pause-screen"><div class="panel compact"><p class="eyebrow">RUN PAUSED</p><h2>暫停中</h2><p class="intro">深呼吸，城市還在等你。</p><button class="primary" id="resume-button">繼續奔跑</button><button class="text-button" id="pause-menu-button">回到主選單</button></div></section>
+    <section class="overlay hidden" id="over-screen"><div class="panel compact"><p class="eyebrow">RUN COMPLETE</p><h2>GAME OVER</h2><div class="result-grid"><div><small>SCORE</small><b id="final-score">0</b></div><div><small>COINS</small><b id="final-coins">0</b></div><div><small>TIME</small><b id="final-time">0:00</b></div><div><small>BEST SCORE</small><b id="final-best">0</b></div></div><button class="primary" id="again-button">再跑一次 <span>→</span></button><button class="text-button" id="main-menu-button">回到主選單</button></div></section>
+    <nav class="touch-controls" aria-label="觸控操作"><button data-action="left" aria-label="向左">‹</button><div><button data-action="jump" aria-label="跳躍">↑</button><button data-action="slide" aria-label="滑行">↓</button></div><button data-action="right" aria-label="向右">›</button></nav>
+    <div class="toast" id="toast" aria-live="polite"></div>
+    <footer>原創 HTML5 Canvas 遊戲 · 自製視覺與音效</footer>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
